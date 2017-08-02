@@ -5,4 +5,10 @@ go:
 script:
  - go get -u github.com/kardianos/govendor
  - govendor build +local
- - go build -o logstash_exporter
+ - GOOS=linux GOARCH=amd64 go build -o logstash_exporter
+ - tar -zcvf logstash_exporter logstash_exporter_amd64.tar.gz
+
+addons:
+  artifacts:
+    paths:
+    - logstash_exporter_amd64.tar.gz
