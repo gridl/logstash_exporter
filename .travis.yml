@@ -5,3 +5,4 @@ go:
 script:
  - go get -u github.com/kardianos/govendor
  - govendor build +local
+ - go build -o logstash_exporter
