@@ -1,0 +1,18 @@
+language: go
+go: 
+ - 1.7.6
+
+script:
+ - go get -u github.com/kardianos/govendor
+ - govendor build +local
+ - GOOS=linux GOARCH=amd64 go build -o logstash_exporter
+ - tar -zcvf logstash_exporter_amd64.tar.gz logstash_exporter
+
+deploy:
+  provider: releases
+  api_key: $GITHUB_API_KEY
+  file:
+    - "logstash_exporter_amd64.tar.gz"
+  skip_cleanup: true
+  on:
+    tags: true
