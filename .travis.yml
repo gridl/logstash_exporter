@@ -10,8 +10,7 @@ script:
 
 deploy:
   provider: releases
-  api_key:
-    secure: $GITHUB_API_KEY
+  api_key: $GITHUB_API_KEY
   file:
     - "logstash_exporter_amd64.tar.gz"
   skip_cleanup: true
