@@ -10,6 +10,5 @@ script:
 
 addons:
   artifacts:
-    s3_region: eu-west-2
     paths: "logstash_exporter_amd64.tar.gz"
     debug: true
