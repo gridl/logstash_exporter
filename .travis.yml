@@ -8,7 +8,12 @@ script:
  - GOOS=linux GOARCH=amd64 go build -o logstash_exporter
  - tar -zcvf logstash_exporter_amd64.tar.gz logstash_exporter
 
-addons:
-  artifacts:
-    paths: "logstash_exporter_amd64.tar.gz"
-    debug: true
+deploy:
+  provider: releases
+  api_key:
+    secure: $GITHUB_API_KEY
+  file:
+    - "logstash_exporter_amd64.tar.gz"
+  skip_cleanup: true
+  on:
+    tags: true
