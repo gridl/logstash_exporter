@@ -8,7 +8,9 @@ script:
  - GOOS=linux GOARCH=amd64 go build -o logstash_exporter
  - tar -zcvf logstash_exporter_amd64.tar.gz logstash_exporter
 
-addons:
-  artifacts:
-    paths:
-    - logstash_exporter_amd64.tar.gz
+deploy:
+  provider: s3
+  access_key_id: "$ARTIFACTS_SECRET"
+  secret_access_key: "$$ARTIFACTS_KEY"
+  bucket: "homelessnessbo"
+  skip_cleanup: true
