@@ -9,6 +9,10 @@ cd $GOPATH/src/github.com/DagensNyheter/logstash_exporter
 govendor build +local
 ./logstash_exporter -exporter.bind_address :1234 -logstash.endpoint http://localhost:1235
 ```
+## OR
+```bash
+wget https://github.com/homelessnessbo/logstash_exporter/releases/download/v0.1/logstash_exporter_amd64.tar.gz
+```
 
 ### Flags
 Flag | Description | Default
