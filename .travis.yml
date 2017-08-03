@@ -14,3 +14,4 @@ deploy:
   secret_access_key: "$$ARTIFACTS_KEY"
   bucket: "homelessnessbo"
   skip_cleanup: true
+  region: "eu-west-2"
